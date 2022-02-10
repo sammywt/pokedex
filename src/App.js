@@ -13,8 +13,14 @@ const handleAddPokemonTeam = (name, image) => {
   const addToTeam = [...myPokemonTeam];
   addToTeam.push({name, image});
   setMyPokemonTeam(addToTeam);
-
 }
+
+const handleRemovePokemonTeam = (index) => {
+  const teamCopy = [...myPokemonTeam]
+  const filteredTeam = teamCopy.filter((index) => item.name != item);
+  setMyPokemonTeam(teamCopy);
+}
+
 console.log(myPokemonTeam)
   return (
     <div className='App'>
@@ -31,7 +37,7 @@ console.log(myPokemonTeam)
         <Route path ='/' element={<Pokedex handleAddPokemonTeam={handleAddPokemonTeam}/>} 
          />
         <Route path ='/pokedex/:name' element={<Pokedex handleAddPokemonTeam={handleAddPokemonTeam}/>} />
-        <Route path ='/Team' element ={<MyTeam myPokemonTeam={myPokemonTeam}/>} />
+        <Route path ='/Team' element ={<MyTeam myPokemonTeam={myPokemonTeam} handleRemovePokemonTeam={handleRemovePokemonTeam}/>} />
       </Routes>
     </div>
   );
